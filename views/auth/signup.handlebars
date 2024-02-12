@@ -1,0 +1,27 @@
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+    <form action="/cadastrar" method="post">
+        <div class=" div-space">
+            <h2 class="text-color my-4"><strong>Criar uma nova conta</strong></h2>
+        </div>
+        <div class="div-space d-flex flex-column mb-2 control-form">
+            <label for="name"><strong>Nome</strong></label>
+            <input type="text" name="name" placeholder="Digite seu nome">
+        </div>
+        <div class="div-space d-flex flex-column mb-2 control-form">
+            <label for="email"><strong>Email</strong></label>
+            <input type="email" name="email" placeholder="Digite seu email">
+        </div>
+        <div class="div-space d-flex flex-column mb-2 control-form">
+            <label for="password"><strong>Senha</strong></label>
+            <input type="password" name="password" placeholder="Digite sua senha">
+        </div>
+        <div class="div-space d-flex flex-column mb-3 control-form">
+            <label for="confrimpassword"><strong>Confirmação de senha</strong></label>
+            <input type="password" name="confirmpassword" placeholder="Digite sua senha novamente">
+        </div>
+        <div class="div-space mb-2 d-flex flex-column">
+            <input class="mb-2" type="submit" value="Cadastrar">
+            <p>Já possui uma conta? <a href="/entrar">Entrar</a></p>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,209 @@
+
+body {
+    color: #F9FBF2;
+}
+
+main {
+    min-height: 100vh;
+}
+
+
+header {
+    background-color: #2B2D42;
+    color: #2B2D42;
+}
+
+header .link-header {
+    color: #F9FBF2;
+}
+
+header .link-header:hover {
+    color: #299AD1;
+}
+
+header .button {
+    border-radius: 100px;
+    color: #F9FBF2;
+    background: #299AD1;
+    font-weight: bold;
+    transition: .5s;
+}
+
+/*  HOME  */
+
+.visited-link:visited {
+    color: #F9FBF2;
+}
+
+header .button:hover {
+    color: #299AD1;
+    background: #F9FBF2;
+}
+.content-sticky {
+    background-color: #FEFFFA
+}
+
+.seach-div {
+    background-color: #545569;
+    border-radius: 21px;
+}
+
+.search-form {
+    background: #FEFFFA;
+    display: inline-block;
+    border-radius: 21px;
+}
+
+.search-form i {
+    color: #299AD1;
+}
+
+.search-form input[type=text]{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.search-form input[type=submit]{
+    background: #0976AB;
+    border: none;
+    border-radius: 21px;
+    color: #F9FBF2;
+    background: #299AD1;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.search-form input[type=submit]:hover{
+    background: #57C3F7;
+}
+
+.order-div > span {
+    color: #545569;
+    font-weight: bold;
+}
+
+
+.text-color {
+    color:#0976AB;
+}
+
+
+.order-input {
+  color:#0976AB;
+
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.div-order {
+    border-bottom: 1px solid #545569;
+}
+
+
+.order-input:hover, .order-input .text-color:hover {
+    color: #57C3F7;
+}
+
+a.text-color:hover {
+    color: #57C3F7;
+}
+
+.home-content {
+    color: #545569;
+    max-width: 45%;
+    min-height: 50%;
+}
+
+.home-content-area > div {
+    border: 1px solid #545569;
+    border-radius: 25px;
+}
+
+.like:hover {
+    color: rgb(222, 107, 107);
+    cursor: pointer;
+}
+
+.link-comment {
+    text-decoration: none;
+    color: #0976AB;
+}
+
+.link-comment:hover {
+    text-decoration: underline;
+    color: #57C3F7;
+}
+
+.btn-comment {
+    text-decoration: none;
+    color: #0976AB;
+    border-radius: 100px;
+    border: 1.5px solid #0976AB;
+    transition: .5s;
+}
+
+.btn-comment:hover {
+    color: #FEFFFA;
+    background: #0976AB;
+}
+
+/* CADASTRAR */
+
+.div-space {
+    min-width: 40vw;
+}
+
+.control-form {
+    color: #0E0F1C;
+}
+
+.control-form input {
+    border: 1px solid #545569;
+    border-radius: 1rem;
+    outline-color: #299AD1;
+    padding: .5rem;
+}
+
+.div-space input[type=submit]{
+    border-radius: 1rem;
+    border: none;
+    background-color: #0976AB;
+    color: #FEFFFA;
+    font-weight: bold;
+    padding: .5rem;
+    transition: .2s;
+}
+
+.div-space input[type=submit]:hover {
+    background-color: #57C3F7;
+}
+
+.div-space p {
+    color: #0E0F1C;
+}
+
+.div-space p a {
+    color: #0976AB;
+    text-decoration: none;
+}
+
+.div-space p a:hover {
+    color: #299AD1;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #545569;
+}
+
+footer .footer-link {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #FEFFFA;
+}
+
+footer .footer-link:hover {
+    color: #cdcdcc;
+}
