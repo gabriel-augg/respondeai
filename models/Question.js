@@ -1,6 +1,6 @@
-import { sequelize as db } from "../db/conn";
+import { sequelize as db } from "../db/conn.js";
 import { DataTypes } from "sequelize";
-import User from "./User.js";
+import { User } from "./User.js";
 
 const Question = db.define('Question', {
     title: {

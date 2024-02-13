@@ -27,9 +27,13 @@ export default class AuthController{
             return
         }
 
+        req.session.userid = user.id
+
         console.log('Logado com sucesso!')
 
-        res.redirect('/')
+        req.session.save(()=>{
+            res.redirect('/')
+        })
     }
 
     static signup(req, res){
@@ -63,16 +67,15 @@ export default class AuthController{
 
             const createdUser = await User.create(user)
 
-            res.redirect('/')
+            req.session.userid = createdUser.id
 
+            req.session.save(()=>{
+                res.redirect('/')
+            })
+  
         } catch (error) {
             console.log(error)
         }
-
-        console.log('cai aqui')
-
-        res.render('auth/signup')
     }
-
 
 }

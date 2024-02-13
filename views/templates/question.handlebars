@@ -1,0 +1,76 @@
+
+<div class="all-content-question mx-auto">
+    <h2 class="text-color my-4"><strong>Pergunta</strong></h2>
+    <div class="question-div-content p-4">
+        <div class="d-flex align-items-center justify-content-between" >
+
+            <div class="d-flex align-items-center">
+                <img src="/assets/user_img.svg" width="50" class="me-2" alt="">
+                <span class="h4">{{userName}}</span>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <span class="me-3">Há 12 horas atrás</span>
+                <span class="me-1">{{question.like}}</span>
+                <i class="bi bi-heart like"></i>
+            </div>
+
+        </div>
+
+        <div class="p-3">
+            <p>{{question.title}}</p>
+        </div>
+    </div>
+</div>
+<div class="all-content-question bottom-content-question mb-3 mx-auto">
+    <h5 class="text-color p-2">Responder</h5>
+    <div class="p-2 px-4">
+        <div class="  d-flex align-items-center mb-2">
+            <img class="me-2" src="/assets/user_img.svg" width="40" alt="">
+            <span class="h5">{{conectedUser.name}}</span>
+        </div>
+        <form action="/resposta" method="post">
+            <div class=" box-content d-flex flex-column p-2">
+                <input type="hidden" name="id" value="{{conectedUser.id}}">
+                <input type="hidden" name="questionId" value="{{question.id}}">
+                <textarea class="p-1" name="title" placeholder="Eu acho que..."></textarea>
+                <button class="p-2 px-4" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="all-content-question mx-auto" id="#respostas">
+    <div class="" style="background-color: #545569;">
+        <h6 class="p-1 px-2" style="color: #F9FBF2;">Respostas</h6>
+    </div>
+    {{#each answers}}
+    <div class="response p-4 mb-4">
+        <div class="d-flex align-items-center justify-content-between" >
+
+            <div class="d-flex align-items-center">
+                <img src="/assets/user_img.svg" width="50" class="me-2" alt="">
+                <span class="h4">{{this.User.name}}</span>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <span class="me-3">Há 12 horas atrás</span>
+                <span class="me-1">{{this.like}}</span>
+                <form action="/resposta-like" method="post">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button class="like" type="submit">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="p-3">
+            <p>{{this.title}}</p>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

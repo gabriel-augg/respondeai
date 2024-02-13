@@ -1,4 +1,5 @@
 <h2 class="text-color my-4"><strong>Perguntas do momento</strong></h2>
+<h2></h2>
 <div class="sticky-top content-sticky">
     <div class="container-fluid seach-div p-4 d-flex justify-content-center">
     <div class="search-form ps-2">
@@ -34,37 +35,46 @@
 </div>
 
 <div class="conteiner-fluid home-content-area d-flex flex-wrap justify-content-center align-itemns-center">
-    <div class="home-content flex-1 p-4 mb-5 mx-2">
+    {{#each questions}}
+        <div class="home-content flex-1 p-4 mb-5 mx-2">
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-center align-items-center">
                 <img src="/assets/user_img.svg" width="40" alt="">
-                <span class="ms-2"><strong>Gabriel</strong></span>
+                <span class="ms-2"><strong>{{this.User.name}}</strong></span>
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <span class="me-3">Há 12 horas atrás</span>
-                <span class="me-1">12</span>
-                <i class="bi bi-heart like"></i>
+                <span class="me-1">{{this.like}}</span>
+                <form action="/like" method="post">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button class="like" type="submit">
+                        <i class="bi bi-heart like"></i>
+                    </button>
+                </form>
+
             </div>
   
-        </div>
-        <div class="p-3">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores totam deserunt dignissimos consequatur excepturi dolore numquam ullam sunt aliquid ut, laborum iure recusandae? Laborum dolorem sunt non provident possimus dignissimos!
-            </p>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-            <div>
-                Respostas: <span class="text-color">12</span>
             </div>
-            <div>
-                <a href="" class="link-comment">
-                    Ver respostas
-                </a>
-                <a href="" class="btn-comment ms-3 p-1 px-2">
-                    Responder
-                </a>
+            <div class="p-3">
+                <p>
+                    {{this.title}}
+                </p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    Respostas: <span class="text-color">12</span>
+                </div>
+                <div class="ps-4">
+                    <a href="/pergunta/{{this.id}}" class="link-comment">
+                        Ver respostas
+                    </a>
+                    <a href="/pergunta/{{this.id}}" class="btn-comment ms-3 p-1 px-2">
+                        Responder
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    {{/each}}
+
 
 </div>

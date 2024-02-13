@@ -19,18 +19,27 @@
                     <img src="/assets/logo.svg" width="160" alt="">
                 </a>
 
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-2 align-items-center">
                     <li class="nav-item">
-                        <a href="/" class="nav-link visited-link me-2 link-header">Perguntas do momento</a>
+                        <a href="/" class="nav-link visited-link  link-header">Perguntas do momento</a>
                     </li>
+                    {{#if userData.session.userid}}
+                        <li class="nav-item me-3 d-flex">
+                            <img class="me-2" src="/assets/user_img.svg" width="42" alt="">
+                            <div class="d-flex user-content-container flex-column">
+                                <span><strong>{{userData.name}}</strong></span>
+                                <a href="">Minha conta</a>
+                            </div>
+                        </li>
+                    {{else}}
+                        <li class="nav-item me-3">
+                            <a href="/entrar" class="nav-link visited-link link-header">Entrar</a>
+                        </li>
+                    {{/if}}
                     <li class="nav-item">
-                        <a href="/entrar" class="nav-link visited-link me-3 link-header">Entrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="btn px-4 button">Perguntar</a>
+                        <a href="/perguntar" class="btn px-4 button">Perguntar</a>
                     </li>
                 </ul>
-
             </div>
         </nav>
     </header>

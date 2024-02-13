@@ -29,6 +29,16 @@ header .button {
     transition: .5s;
 }
 
+.user-content-container span, .user-content-container a {
+    color: #F9FBF2;
+    transition: .2s;
+    text-decoration: none;
+}
+
+.user-content-container a:hover {
+    color: #299AD1;
+}
+
 /*  HOME  */
 
 .visited-link:visited {
@@ -121,7 +131,13 @@ a.text-color:hover {
     border-radius: 25px;
 }
 
-.like:hover {
+.like {
+    border: none;
+    background: transparent;
+    cursor: default;
+}
+
+.like i:hover {
     color: rgb(222, 107, 107);
     cursor: pointer;
 }
@@ -193,6 +209,90 @@ a.text-color:hover {
     color: #299AD1;
     text-decoration: underline;
 }
+
+/* PERGUNTAR */
+
+.question-content {
+    max-width: 50vw;
+}
+
+.border-div {
+    border: 1px solid #545569;
+    border-radius: 21px;
+}
+
+.border-div textarea {
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.border-div button {
+    border: none;
+    background: #0976AB;
+    transition: .2s;
+    color: #F9FBF2;
+    border-radius: 100px;
+    align-self: end;
+}
+
+.border-div button:hover {
+    background: #299AD1;
+}
+
+/* PERGUNTA */
+.all-content-question {
+    max-width: 60vw;
+    color: #2B2D42;
+}
+.question-div-content {
+    border: 1px solid #545569;
+    border-top-left-radius: 21px;
+    border-top-right-radius: 21px;
+    color: #0E0F1C;
+}
+
+.bottom-content-question {
+    border: 1px solid #545569;
+    border-bottom-left-radius: 21px;
+    border-bottom-right-radius: 21px;
+    color: #0E0F1C;
+}
+
+.content-area {
+    border: 1px solid #545569;
+    border-radius: 21px;
+}
+
+.bottom-content-question textarea {
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.bottom-content-question button {
+    background-color: #0976AB;
+    color: #FEFFFA;
+    border: none;
+    outline: none;
+    align-self: flex-end;
+    border-radius: 100px;
+    font-weight: bold;
+}
+
+.bottom-content-question button:hover {
+    background-color: #299AD1;
+}
+
+.box-content {
+    border: 1px solid #545569;
+    border-radius: 21px;
+}
+
+.response {
+    border: 1px solid #545569;
+}
+
 
 footer {
     background-color: #545569;
