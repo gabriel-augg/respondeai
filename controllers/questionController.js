@@ -2,16 +2,40 @@ import session from "express-session"
 import { User } from "../models/User.js"
 import { Question } from "../models/Question.js"
 import { Answer } from "../models/Answer.js"
-import { timeAgo } from "../helpers/formatDate.js" 
+import { Op } from "sequelize"
 
 export default class questionController{
     static async showQuestions(req, res){
 
+        let search = ''
+
+        if(req.query.search){
+            search = req.query.search
+        }
+
+        let order = 'DESC'
+
+        if(req.query.order === 'old'){
+            order = 'ASC'
+        } else {
+            order = 'DESC'
+        }
+
         const questionsData = await Question.findAll({
-            include: User
+            include: [
+                {model: User},
+                {model: Answer}
+            ],
+            where: {
+                title: {[Op.like]: `%${search}%`}
+            },
+            order: [['createdAt', order]]
         })
 
         const questions = questionsData.map((result) => result.get({plain: true}))
+
+
+       questions.forEach(question => question.qty = question.Answers.length)
 
 
         res.render('templates/home', {questions})
