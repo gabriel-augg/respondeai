@@ -3,6 +3,15 @@ import { User } from "../models/User.js"
 import { Question } from "../models/Question.js"
 import { Answer } from "../models/Answer.js"
 import { Op } from "sequelize"
+import { formatDistanceToNow } from "date-fns"
+import { ptBR } from "date-fns/locale"
+
+
+
+
+
+
+
 
 export default class questionController{
     static async showQuestions(req, res){
@@ -35,9 +44,12 @@ export default class questionController{
         const questions = questionsData.map((result) => result.get({plain: true}))
 
 
-       questions.forEach(question => question.qty = question.Answers.length)
+       questions.forEach(question => {
+        question.answerQty = question.Answers.length
+        question.timeago = formatDistanceToNow(new Date(question.createdAt), { addSuffix: true, locale: ptBR })
+        })
 
-
+        
         res.render('templates/home', {questions})
 
     }
@@ -87,10 +99,14 @@ export default class questionController{
 
         try {
             const question = await Question.findOne({where: {id:id}, raw: true, include: User})
+            question.timeago = formatDistanceToNow(new Date(question.createdAt), { addSuffix: true, locale: ptBR })
             const userName = question['User.name']
             const conectedUser = await User.findOne({where: {id:userId}, raw: true})
             const answersData = await Answer.findAll({where: {QuestionId:question.id}, include: User, order: [['like', 'DESC']]})
             const answers = answersData.map((result) => result.get({plain: true}))
+            answers.forEach(answer => {
+                answer.timeago = formatDistanceToNow(new Date(answer.createdAt), { addSuffix: true, locale: ptBR })
+            })
     
             res.render('templates/question', { question, userName, conectedUser, answers } )
         } catch (error) {
