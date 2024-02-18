@@ -3,6 +3,16 @@ body {
     color: #F9FBF2;
 }
 
+.success {
+    background-color: #299AD1;
+    color: #FEFFFA;
+}
+
+.error {
+    background-color: #FF8989;
+    color: #FEFFFA;
+}
+
 main {
     min-height: 100vh;
 }

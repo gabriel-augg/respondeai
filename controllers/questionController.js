@@ -49,8 +49,10 @@ export default class questionController{
         question.timeago = formatDistanceToNow(new Date(question.createdAt), { addSuffix: true, locale: ptBR })
         })
 
+        let checkIfThereIsntQuestion = (questions.length == 0 ) ? true : false
+
         
-        res.render('templates/home', {questions})
+        res.render('templates/home', {questions, checkIfThereIsntQuestion})
 
     }
 
@@ -87,6 +89,7 @@ export default class questionController{
         await Question.create(question)
 
         try {
+            req.flash('success', 'Pergunta publicada com sucesso!')
             req.session.save(()=> {
                 res.redirect('/')
             })
@@ -109,8 +112,10 @@ export default class questionController{
             answers.forEach(answer => {
                 answer.timeago = formatDistanceToNow(new Date(answer.createdAt), { addSuffix: true, locale: ptBR })
             })
+
+            let checkIfThereIsntAnswers = (answers.length == 0) ? true : false
     
-            res.render('templates/question', { question, userName, conectedUser, answers } )
+            res.render('templates/question', { question, userName, conectedUser, answers, checkIfThereIsntAnswers } )
         } catch (error) {
             console.log(error)
         }
@@ -145,10 +150,10 @@ export default class questionController{
             question.timeago = formatDistanceToNow(new Date(question.createdAt), { addSuffix: true, locale: ptBR })
         })
 
-        console.log(questions)
+        let checkIfThereIsntQuestion = (questions.length == 0) ? true : false
 
 
-        res.render('templates/myQuestions', {questions})
+        res.render('templates/myQuestions', {questions, checkIfThereIsntQuestion})
     }
 
     static async showUserQuestion(req, res){
@@ -165,8 +170,10 @@ export default class questionController{
             answers.forEach(answer => {
                 answer.timeago = formatDistanceToNow(new Date(answer.createdAt), { addSuffix: true, locale: ptBR })
             })
+
+            let checkIfThereIsntAnswers = ( answers.length == 0 ) ? true : false
     
-            res.render('templates/myQuestion', { question, userName, conectedUser, answers } )
+            res.render('templates/myQuestion', { question, userName, conectedUser, answers, checkIfThereIsntAnswers } )
         } catch (error) {
             console.log(error)
         }
@@ -183,6 +190,7 @@ export default class questionController{
         await Question.update(question, {where: {id:id}})
 
         try {
+            req.flash('success', 'Pergunta editada com sucesso!')
             req.session.save(()=> {
                 res.redirect(`/minhas-perguntas/${id}`)
             })
@@ -199,6 +207,7 @@ export default class questionController{
 
         try {
             req.session.save(()=> {
+                req.flash('success', 'Pergunta excluida com sucesso!')
                 res.redirect(`/minhas-perguntas`)
             })
         } catch (error) {

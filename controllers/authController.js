@@ -1,3 +1,4 @@
+import flash from "express-flash";
 import { User } from "../models/User.js"
 import bcrypt from "bcrypt";
 
@@ -14,7 +15,7 @@ export default class AuthController{
         const user = await User.findOne({where: {email:email}})
 
         if(!user){
-            console.log('Usuário não encontrado!')
+            req.flash('error', 'Usuário não encontrado!')
             res.render('auth/signin')
             return
         }
@@ -22,14 +23,14 @@ export default class AuthController{
         const passwordMatch = bcrypt.compareSync(password, user.password)
 
         if(!passwordMatch){
-            console.log('As senhas não conferem!')
+            req.flash('error', 'As senhas não conferem!')
             res.render('auth/signin')
             return
         }
 
         req.session.userid = user.id
 
-        console.log('Logado com sucesso!')
+        req.flash('success', 'Authenticação realizada com sucesso!')
 
         req.session.save(()=>{
             res.redirect('/')
@@ -45,14 +46,17 @@ export default class AuthController{
         const { name, email, password, confirmpassword } = req.body
 
         if(password != confirmpassword){
-            console.log('Senhas não conferem!')
+            req.flash('error', 'As senhas não conferem!')
             res.render('auth/signup')
             return
         }
 
         const checkIfUserExists = await User.findOne({where: {email:email}})
+        
         if(checkIfUserExists){
-            console.log('O usuário já existe')
+            req.flash('error', 'O usuário já existe!')
+            res.render('auth/signup')
+            return
         }
 
         const salt = bcrypt.genSaltSync(10);
@@ -70,6 +74,7 @@ export default class AuthController{
             req.session.userid = createdUser.id
 
             req.session.save(()=>{
+                req.flash('success', 'Usuário criado com sucesso!')
                 res.redirect('/')
             })
   

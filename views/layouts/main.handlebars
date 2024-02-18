@@ -44,9 +44,15 @@
         </nav>
     </header>
 
-    {{#if messages.message}}
-        <div class="message text-color">
-        {{messages.message}}
+    {{#if messages.success}}
+        <div class="success p-2 text-center">
+        {{messages.success}}
+        </div>
+    {{/if}}
+
+    {{#if messages.error}}
+        <div class="error p-2 text-center">
+        {{messages.error}}
         </div>
     {{/if}}
     

@@ -24,18 +24,18 @@
                 <input class="align-self-end btn-comment p-1 px-3" type="submit" value="Salvar">
             </form>
         </div>
-        <div class="px-3 mt-3">
-            <form class="d-flex justify-content-end" action="/deletar-pergunta" method="post">
-                <input type="hidden" name="id" value="{{question.id}}">
-                <input class="delete-question p-1 px-3" type="submit" value="Excluir">
-            </form>
-        </div>
+
     </div>
 </div>
 
 
 <div class="answers-div mx-auto pb-4 mb-4" id="#respostas">
     <h6 class="px-3 py-2" style="color: #F9FBF2;">Respostas</h6>
+    {{#if checkIfThereIsntAnswers}}
+    <div class="answer text-center text-color p-3">
+        <h5>Não há respostas</h5>
+    </div>
+    {{/if}}
     {{#each answers}}
     <div class="answer p-4">
         <div class="d-flex align-items-center justify-content-between" >

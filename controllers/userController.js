@@ -29,7 +29,7 @@ export default class UserController {
         const passwordMatch = bcrypt.compareSync(password, user.password)
 
         if(!passwordMatch){
-            console.log('As senhas não conferem!')
+            req.flash('error', 'As senhas não conferem!')
             res.render('templates/perfil')
             return
         }
@@ -52,7 +52,7 @@ export default class UserController {
 
         
         try {
-            // req.flash('message', "Pensamento atualizado com sucesso!")
+            req.flash('success', "Informações atualizadas com sucesso!")
 
             req.session.save(()=> {
                 res.redirect('/perfil')

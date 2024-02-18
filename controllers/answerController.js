@@ -10,9 +10,14 @@ export default class AnswerController{
             UserId: id
         }
 
+        await Answer.create(answer)
+
         try {
-            await Answer.create(answer)
-            res.redirect(`/pergunta/${questionId}`)
+            req.flash('success', 'Resposta publicada com sucesso!')
+            req.session.save(()=> {
+                res.redirect(`/pergunta/${questionId}`)
+            })
+
         } catch (error) {
             
         }

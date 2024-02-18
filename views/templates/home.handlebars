@@ -31,6 +31,11 @@
         <a href="/" class="text-color" >Limpar</a>
     </div>
 </div>
+{{#if checkIfThereIsntQuestion}}
+    <div class="container-sm p-3 text-center">
+        <h2 class="text-color">Não há perguntas no momento</h2>
+    </div>
+{{/if}}
 
 <div class="conteiner-fluid home-content-area d-flex flex-wrap justify-content-center align-itemns-center">
     {{#each questions}}

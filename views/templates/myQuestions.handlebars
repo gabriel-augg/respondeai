@@ -32,6 +32,11 @@
                 <span class="ms-1 h4 text-color-profile">Minhas perguntas</span>
             </div>
             <div>
+                {{#if checkIfThereIsntQuestion}}
+                    <div class="text-center text-color p-5">
+                        <h4>Você não tem perguntas publicadas</h4>
+                    </div>
+                {{/if}}
                 {{#each questions}}
                     <div class="profile-question p-3 mb-3">
                         <div class="d-flex align-items-center justify-content-between">
@@ -46,9 +51,15 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-between">
                             <span>Respostas: <span class="text-color">{{this.answerQty}}</span></span>
-                            <div class="profile-actions">
+                            <div class="profile-actions d-flex align-items-center">
                                 <a href="/minhas-perguntas/{{this.id}}" class="link-comment">Ver respostas</a>
-                                <a href="/minhas-perguntas/{{this.id}}" class="btn-comment ms-3 p-1 px-4">Editar</a>
+                                <div>
+                                    <form class="d-flex justify-content-end" action="/deletar-pergunta" method="post">
+                                        <input type="hidden" name="id" value="{{this.id}}">
+                                        <input class="delete-question p-1 px-3" type="submit" value="Excluir">
+                                    </form>
+                                </div>
+                                <a href="/minhas-perguntas/{{this.id}}" class="btn-comment p-1 px-4">Editar</a>
                             </div>
                         </div>
                     </div>
