@@ -49,13 +49,11 @@ app.use(
 )
 
 app.use( async (req, res, next) => {
-    // se o usuário estiver logado, mando a sessão que está na requisição para a resposta
-    // para acessar no frontend
-    // (Aqui onde fica armazenado os dados do usuário logado)
+
     if (req.session.userid) {
         const user = await User.findOne({ where: { id: req.session.userid } });
 
-        // Crie um objeto para armazenar a sessão e o nome do usuário
+
         try {
             res.locals.userData = {
                 session: req.session,
@@ -66,7 +64,7 @@ app.use( async (req, res, next) => {
         }
 
     }
-    // Se o usuário não estiver logado, eu passo a sessão
+
     next()
 
 })
