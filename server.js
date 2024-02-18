@@ -9,8 +9,8 @@ import { sequelize as conn } from "./db/conn.js"
 import questionController from "./controllers/questionController.js"
 import { authRouter } from "./routes/authRoutes.js"
 import { questionRouter } from "./routes/questionRoutes.js"
-import { answerRouter } from "./routes/answerRouter.js"
-import { userRouter } from "./routes/userRouter.js"
+import { answerRouter } from "./routes/answerRoutes.js"
+import { userRouter } from "./routes/userRoutes.js"
 import { User } from "./models/User.js"
 
 

@@ -68,6 +68,10 @@ header .button:hover {
     border-radius: 21px;
 }
 
+.text-color-2 {
+    color: #2B2D42;
+}
+
 .search-form {
     background: #FEFFFA;
     display: inline-block;

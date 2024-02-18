@@ -1,5 +1,4 @@
 import { User } from "../models/User.js"
-import { Question } from "../models/Question.js"
 import bcrypt from "bcrypt";
 
 export default class UserController {
@@ -11,7 +10,7 @@ export default class UserController {
 
             res.render('templates/profile', { user })
         } catch (error) {
-            console.log(err)
+            console.log(error)
         }
 
   

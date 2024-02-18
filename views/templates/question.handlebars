@@ -5,8 +5,8 @@
         <div class="d-flex align-items-center justify-content-between" >
 
             <div class="d-flex align-items-center">
-                <img src="/assets/user_img.svg" width="50" class="me-2" alt="">
-                <span class="h4">{{userName}}</span>
+                <img src="/assets/user_img.svg" width="40" class="me-2" alt="">
+                <span class="h5 text-color-2">{{userName}}</span>
             </div>
 
             <div class="d-flex align-items-center">
@@ -26,8 +26,8 @@
     <h6 class="text-color p-2">Responder</h6>
     <div class="p-2 px-4 mb-4">
         <div class="  d-flex align-items-center mb-2">
-            <img class="me-2" src="/assets/user_img.svg" width="40" alt="">
-            <span class="h5">{{conectedUser.name}}</span>
+            <img class="me-2" src="/assets/user_img.svg" width="35" alt="">
+            <span class="text-color-2"><strong>{{conectedUser.name}}</strong></span>
         </div>
         <form action="/resposta" method="post">
             <div class=" box-content d-flex flex-column p-2">
@@ -52,13 +52,13 @@
         <div class="d-flex align-items-center justify-content-between" >
 
             <div class="d-flex align-items-center">
-                <img src="/assets/user_img.svg" width="50" class="me-2" alt="">
-                <span class="h4">{{this.User.name}}</span>
+                <img src="/assets/user_img.svg" width="40" class="me-2" alt="">
+                <span class="h5 text-color-2">{{this.User.name}}</span>
             </div>
 
             <div class="d-flex align-items-center">
                 <span class="me-3">{{this.timeago}}</span>
-                <span class="me-1">{{this.like}}</span>
+                <span>{{this.like}}</span>
                 <form action="/resposta-like" method="post">
                     <input type="hidden" name="id" value="{{this.id}}">
                     <button class="like" type="submit">

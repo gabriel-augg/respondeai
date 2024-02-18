@@ -66,7 +66,7 @@ export default class questionController{
             res.render('templates/toQuestion', {user})
 
         } catch (error) {
-
+            console.log(error)
         }
 
 
@@ -93,8 +93,8 @@ export default class questionController{
             req.session.save(()=> {
                 res.redirect('/')
             })
-        } catch(err){
-            console.log("Aconteceu um erro: " + err)
+        } catch(error){
+            console.log("Aconteceu um erro: " + error)
         }
     }
 

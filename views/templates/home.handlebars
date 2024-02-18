@@ -43,11 +43,11 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-center align-items-center">
                 <img src="/assets/user_img.svg" width="40" alt="">
-                <span class="ms-2 me-4"><strong>{{this.User.name}}</strong></span>
+                <span class="ms-2 me-4 text-color-2"><strong>{{this.User.name}}</strong></span>
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <span class="me-3">{{this.timeago}}</span>
-                <span class="me-1 text-color">{{this.like}}</span>
+                <span class=" text-color">{{this.like}}</span>
                 <form action="/like" method="post">
                     <input type="hidden" name="id" value="{{this.id}}">
                     <button class="like" type="submit">
