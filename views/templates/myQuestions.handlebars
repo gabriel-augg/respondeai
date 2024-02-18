@@ -1,0 +1,61 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-3">
+            <div class="aside-profile">
+                <nav class="navbar ">
+                    <ul class="navbar-nav">
+                        <li class="nav-item p-3 profile-li ">
+                            <a class="d-flex align-items-center" href="/perfil">
+                                <img src="/assets/profile_user.svg" alt="">
+                                <span class="ms-2" ><strong>Meu perfil</strong></span>
+                            </a>
+                        </li>
+                        <li class="nav-item p-3 profile-li actualy-page">
+                            <a class="d-flex align-items-center" href="">
+                                <img src="/assets/profile_question.svg" alt="">
+                                <span class="ms-2" ><strong>Minhas perguntas</strong></span>
+                            </a>
+                        </li>
+                        <li class="nav-item p-3 profile-li">
+                            <a class="d-flex align-items-center" href="/sair">
+                                <img src="/assets/profile_exit.svg" alt="">
+                                <span class="ms-2"><strong>Sair</strong></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+         <div class="col-9">
+            <div class="d-flex align-items-center mb-4">
+                <img src="/assets/profile_question2.svg" width="40" alt="">
+                <span class="ms-1 h4 text-color-profile">Minhas perguntas</span>
+            </div>
+            <div>
+                {{#each questions}}
+                    <div class="profile-question p-3 mb-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>{{this.timeago}}</span>
+                            <div class="d-flex align-items-center">
+                                <span class="text-color">{{this.like}}</span>
+                                <i class="bi bi-heart ps-1"></i>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p>{{this.title}}</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>Respostas: <span class="text-color">{{this.answerQty}}</span></span>
+                            <div class="profile-actions">
+                                <a href="/minhas-perguntas/{{this.id}}" class="link-comment">Ver respostas</a>
+                                <a href="/minhas-perguntas/{{this.id}}" class="btn-comment ms-3 p-1 px-4">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            
+        </div>
+    </div>
+
+</div>

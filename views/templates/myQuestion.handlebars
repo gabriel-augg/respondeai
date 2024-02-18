@@ -1,7 +1,7 @@
 
 <div class="all-content-question mx-auto">
-    <h2 class="text-color my-4"><strong>Pergunta</strong></h2>
-    <div class="question-div-content p-4">
+    <h2 class="text-color my-4"><strong>Minha pergunta</strong></h2>
+    <div class="div-myquestion p-4 mb-4">
         <div class="d-flex align-items-center justify-content-between" >
 
             <div class="d-flex align-items-center">
@@ -17,28 +17,22 @@
 
         </div>
 
-        <div class="p-3">
-            <p>{{question.title}}</p>
+        <div class="p-3 d-flex mt-3 myquestion">
+            <form class="d-flex flex-column w-100" action="/atualizar-pergunta" method="post">
+                <textarea name="title" required >{{question.title}}</textarea>
+                <input type="hidden" name="id" value="{{question.id}}">
+                <input class="align-self-end btn-comment p-1 px-3" type="submit" value="Salvar">
+            </form>
+        </div>
+        <div class="px-3 mt-3">
+            <form class="d-flex justify-content-end" action="/deletar-pergunta" method="post">
+                <input type="hidden" name="id" value="{{question.id}}">
+                <input class="delete-question p-1 px-3" type="submit" value="Excluir">
+            </form>
         </div>
     </div>
 </div>
-<div class="all-content-question bottom-content-question mb-3 mx-auto">
-    <h6 class="text-color p-2">Responder</h6>
-    <div class="p-2 px-4 mb-4">
-        <div class="  d-flex align-items-center mb-2">
-            <img class="me-2" src="/assets/user_img.svg" width="40" alt="">
-            <span class="h5">{{conectedUser.name}}</span>
-        </div>
-        <form action="/resposta" method="post">
-            <div class=" box-content d-flex flex-column p-2">
-                <input type="hidden" name="id" value="{{conectedUser.id}}">
-                <input type="hidden" name="questionId" value="{{question.id}}">
-                <textarea class="p-1" name="title" placeholder="Eu acho que..."></textarea>
-                <button class="p-2 px-4" type="submit">Enviar</button>
-            </div>
-        </form>
-    </div>
-</div>
+
 
 <div class="answers-div mx-auto pb-4 mb-4" id="#respostas">
     <h6 class="px-3 py-2" style="color: #F9FBF2;">Respostas</h6>

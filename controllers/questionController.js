@@ -73,7 +73,9 @@ export default class questionController{
     static async toQuestionPost(req, res){
 
         if(!req.body.title){
-            console.log('por favor, preecha o campo')
+            req.flash('message', 'Porfavor, preencha o campo!')
+            console.log('caiu aqui')
+            res.render('templates/toQuestion')
             return
         }
 
@@ -129,6 +131,79 @@ export default class questionController{
             res.redirect('/')
         })
 
+    }
+
+    static async showUserQuestions(req, res){
+        const id = req.session.userid
+
+        const questionsData = await Question.findAll({where: {UserId:id}, include: Answer})
+
+        const questions = questionsData.map((result) => result.get({plain: true}))
+
+        questions.forEach(question => {
+            question.answerQty = question.Answers.length
+            question.timeago = formatDistanceToNow(new Date(question.createdAt), { addSuffix: true, locale: ptBR })
+        })
+
+        console.log(questions)
+
+
+        res.render('templates/myQuestions', {questions})
+    }
+
+    static async showUserQuestion(req, res){
+        const id = req.params.id
+        const userId = req.session.userid
+
+        try {
+            const question = await Question.findOne({where: {id:id}, raw: true, include: User})
+            question.timeago = formatDistanceToNow(new Date(question.createdAt), { addSuffix: true, locale: ptBR })
+            const userName = question['User.name']
+            const conectedUser = await User.findOne({where: {id:userId}, raw: true})
+            const answersData = await Answer.findAll({where: {QuestionId:question.id}, include: User, order: [['like', 'DESC']]})
+            const answers = answersData.map((result) => result.get({plain: true}))
+            answers.forEach(answer => {
+                answer.timeago = formatDistanceToNow(new Date(answer.createdAt), { addSuffix: true, locale: ptBR })
+            })
+    
+            res.render('templates/myQuestion', { question, userName, conectedUser, answers } )
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    static async updateQuestion(req, res){
+
+        const id = req.body.id
+
+        const question = {
+            title: req.body.title
+        }
+
+        await Question.update(question, {where: {id:id}})
+
+        try {
+            req.session.save(()=> {
+                res.redirect(`/minhas-perguntas/${id}`)
+            })
+        } catch (error) {
+            console.log('Aconteceu um erro: ' + error)
+        }
+
+    }
+
+    static async removeQuestion(req, res){
+        const id = req.body.id
+
+        await Question.destroy({where: {id:id}})
+
+        try {
+            req.session.save(()=> {
+                res.redirect(`/minhas-perguntas`)
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 }

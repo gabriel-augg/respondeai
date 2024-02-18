@@ -5,19 +5,19 @@
         </div>
         <div class="div-space d-flex flex-column mb-2 control-form">
             <label for="name"><strong>Nome</strong></label>
-            <input type="text" name="name" placeholder="Digite seu nome">
+            <input type="text" name="name" placeholder="Digite seu nome" required>
         </div>
         <div class="div-space d-flex flex-column mb-2 control-form">
             <label for="email"><strong>Email</strong></label>
-            <input type="email" name="email" placeholder="Digite seu email">
+            <input type="email" name="email" placeholder="Digite seu email" required>
         </div>
         <div class="div-space d-flex flex-column mb-2 control-form">
             <label for="password"><strong>Senha</strong></label>
-            <input type="password" name="password" placeholder="Digite sua senha">
+            <input type="password" minlength="6" name="password" placeholder="Digite sua senha" required>
         </div>
-        <div class="div-space d-flex flex-column mb-3 control-form">
+        <div class="div-space d-flex flex-column mb-3 control-form" >
             <label for="confrimpassword"><strong>Confirmação de senha</strong></label>
-            <input type="password" name="confirmpassword" placeholder="Digite sua senha novamente">
+            <input type="password" name="confirmpassword" placeholder="Digite sua senha novamente" required>
         </div>
         <div class="div-space mb-2 d-flex flex-column">
             <input class="mb-2" type="submit" value="Cadastrar">

@@ -10,6 +10,7 @@ import questionController from "./controllers/questionController.js"
 import { authRouter } from "./routes/authRoutes.js"
 import { questionRouter } from "./routes/questionRoutes.js"
 import { answerRouter } from "./routes/answerRouter.js"
+import { userRouter } from "./routes/userRouter.js"
 import { User } from "./models/User.js"
 
 
@@ -55,10 +56,15 @@ app.use( async (req, res, next) => {
         const user = await User.findOne({ where: { id: req.session.userid } });
 
         // Crie um objeto para armazenar a sessão e o nome do usuário
-        res.locals.userData = {
-            session: req.session,
-            name: user.name
-        };
+        try {
+            res.locals.userData = {
+                session: req.session,
+                name: user.name
+            };
+        } catch (error) {
+            console.log(error)
+        }
+
     }
     // Se o usuário não estiver logado, eu passo a sessão
     next()
@@ -72,6 +78,7 @@ app.use(express.static('public'))
 app.use('/', authRouter)
 app.use('/', questionRouter)
 app.use('/', answerRouter)
+app.use('/', userRouter)
 app.get('/', questionController.showQuestions)
 
 

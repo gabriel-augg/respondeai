@@ -182,6 +182,7 @@ a.text-color:hover {
     padding: .5rem;
 }
 
+
 .div-space input[type=submit]{
     border-radius: 1rem;
     border: none;
@@ -245,6 +246,14 @@ a.text-color:hover {
     max-width: 60vw;
     color: #2B2D42;
 }
+
+.answers-div {
+    max-width: 60vw;
+    color: #2B2D42;
+    border-radius: 21px;
+    background-color: #545569;
+}
+
 .question-div-content {
     border: 1px solid #545569;
     border-top-left-radius: 21px;
@@ -289,10 +298,94 @@ a.text-color:hover {
     border-radius: 21px;
 }
 
-.response {
+.answer {
     border: 1px solid #545569;
+    background: #FFF;;
 }
 
+/* PERFIL */
+
+.aside-profile {
+    background: #545569;
+    border-radius: 21px;
+}
+
+.profile-li a {
+    text-decoration: none;
+    color: #FEFFFA;
+}
+
+.profile-li a:hover {
+    opacity: 0.7;
+}
+
+.actualy-page {
+    opacity: 0.7;
+}
+
+
+.update-form input {
+    border: 1px solid #545569;
+    border-radius: 1rem;
+    outline-color: #299AD1;
+    padding: .5rem;
+    width: 100%;
+}
+
+.text-color-profile {
+    color: #545569;
+}
+
+.profile-input {
+    border-radius: 1rem;
+    border: none;
+    background-color: #0976AB;
+    color: #FEFFFA;
+    font-weight: bold;
+    padding: .5rem;
+    transition: .2s;
+}
+
+.profile-input:hover {
+    background-color: #299AD1;
+}
+
+.profile-question {
+    color: #0E0F1C;
+    border: 1px solid #545569;
+    border-radius: 21px;
+}
+
+.div-myquestion {
+    border: 1px solid #545569;
+    border-radius: 21px;
+    color: #0E0F1C;
+}
+
+.myquestion {
+    border: 1px solid #545569;
+    border-radius: 21px;
+}
+
+.myquestion textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 5rem;
+}
+
+.delete-question {
+    border: none;
+    background: transparent;
+    outline: none;
+    color: rgb(204, 121, 121);
+    font-weight: bold;
+}
+
+.delete-question:hover {
+    text-decoration: underline;
+}
 
 footer {
     background-color: #545569;
