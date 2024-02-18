@@ -30,7 +30,7 @@ export default class AuthController{
 
         req.session.userid = user.id
 
-        req.flash('success', 'Authenticação realizada com sucesso!')
+        req.flash('success', 'Autenticação realizada com sucesso!')
 
         req.session.save(()=>{
             res.redirect('/')
