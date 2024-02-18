@@ -56,14 +56,14 @@ export default class questionController{
 
     }
 
-    static async toQuestion(req, res){
+    static async createQuestion(req, res){
 
         const userId = req.session.userid
 
         try {
 
             const user = await User.findOne({where: {id:userId}, raw: true})
-            res.render('templates/toQuestion', {user})
+            res.render('templates/create', {user})
 
         } catch (error) {
             console.log(error)
@@ -72,12 +72,11 @@ export default class questionController{
 
     }
 
-    static async toQuestionPost(req, res){
+    static async createQuestionPost(req, res){
 
         if(!req.body.title){
             req.flash('message', 'Porfavor, preencha o campo!')
-            console.log('caiu aqui')
-            res.render('templates/toQuestion')
+            res.render('templates/create')
             return
         }
 
@@ -152,11 +151,11 @@ export default class questionController{
 
         let checkIfThereIsntQuestion = (questions.length == 0) ? true : false
 
-
-        res.render('templates/myQuestions', {questions, checkIfThereIsntQuestion})
+        res.render('templates/userQuestions', {questions, checkIfThereIsntQuestion})
     }
 
     static async showUserQuestion(req, res){
+
         const id = req.params.id
         const userId = req.session.userid
 
@@ -173,7 +172,7 @@ export default class questionController{
 
             let checkIfThereIsntAnswers = ( answers.length == 0 ) ? true : false
     
-            res.render('templates/myQuestion', { question, userName, conectedUser, answers, checkIfThereIsntAnswers } )
+            res.render('templates/userQuestion', { question, userName, conectedUser, answers, checkIfThereIsntAnswers } )
         } catch (error) {
             console.log(error)
         }

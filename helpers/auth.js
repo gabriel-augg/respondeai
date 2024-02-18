@@ -4,7 +4,6 @@ const checkAuth = (req, res, next) => {
     if(!userId){
         res.redirect('/entrar')
     }
-
     next()
 } 
 

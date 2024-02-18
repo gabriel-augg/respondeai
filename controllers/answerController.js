@@ -1,7 +1,9 @@
 import { Answer } from "../models/Answer.js"
 
 export default class AnswerController{
-    static async toAnswer(req, res){
+
+    static async createAnswer(req, res){
+
         const { title, questionId, id } = req.body
 
         const answer = {
@@ -10,34 +12,37 @@ export default class AnswerController{
             UserId: id
         }
 
-        await Answer.create(answer)
-
         try {
+
+            await Answer.create(answer)
+
             req.flash('success', 'Resposta publicada com sucesso!')
+
             req.session.save(()=> {
-                res.redirect(`/pergunta/${questionId}`)
+                res.redirect(`/perguntas/${questionId}`)
             })
 
         } catch (error) {
-            
+            console.log(error)
         }
     }
 
     static async likePost(req, res){
-        const { id } = req.body
+
+        const id = req.body.id
 
         try {
+
             const answer = await Answer.findOne({where: {id:id}, raw: true})
+
             answer.like += 1
+
             await Answer.update(answer, {where: {id:id}})
 
             res.redirect(`/pergunta/${answer.QuestionId}`)
+
         } catch (error) {
             console.log(error)
         }
-
-        
-
-
     }
 }

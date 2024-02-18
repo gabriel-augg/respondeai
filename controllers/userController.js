@@ -19,6 +19,7 @@ export default class UserController {
     }
 
     static async updateAccountInfo(req, res){
+
         const id = req.session.userid
         const { name, email, password, newPassword } = req.body
 
@@ -29,7 +30,7 @@ export default class UserController {
 
         if(!passwordMatch){
             req.flash('error', 'As senhas não conferem!')
-            res.render('templates/perfil')
+            res.render('templates/profile')
             return
         }
 
@@ -59,8 +60,6 @@ export default class UserController {
         } catch (error) {
             console.log('Aconteceu um erro: ' + error)
         }
-
-      
 
     }
 }
