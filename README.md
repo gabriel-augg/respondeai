@@ -46,12 +46,13 @@ npm install
 ```
 
 <h4>3 - Iniciando o projeto</h4>
+
 No mesmo terminal, execute o seguinte comando:
 
 ```bash
 npm start
 ```
-<h4>4 - Acessando o site</h4>
+<h4>4 - Acessando o RespondeAi</h4>
 Após a sguir todos esses passos, abra o seguinte link no navegador de preferência: 
 
 http://localhost:3000/
