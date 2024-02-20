@@ -6,6 +6,12 @@ Para executar o projeto, vá para o último tópico: <a href="##getting-started"
 ## 🎨 Layout
 <img src="public/assets/screenshot.png">
 
+## ⚙️ Descrição do projeto
+
+O projeto FullStack está completamente funcional, integrando um FrontEnd dinâmico e responsivo desenvolvido com Handlebars e estilizado com Bootstrap. O BackEnd utiliza o Express, junto ao Sequelize (MySQL) como banco de dados para uma eficiente manipulação de dados. A segurança é assegurada com a utilização do bcrypt para autenticação de usuários, garantindo o armazenamento seguro e a proteção das credenciais no sistema. A aplicação possui dois CRUD completos, um para as perguntas e outro para os usuários.
+
+No total, há 8 páginas, cada uma com as suas próprias funcionalidades, sendo elas: Home, Signin, Signup, Read Question, Create Question, Edit Question, User Informations e User Question.
+
 ## 💻 Tecnologias
 
 - JavaScript
@@ -16,11 +22,7 @@ Para executar o projeto, vá para o último tópico: <a href="##getting-started"
 - MySQL
 - Bcrypt (Auth)
 
-## ⚙️ Descrição do projeto
 
-O projeto FullStack está completamente funcional, integrando um FrontEnd dinâmico e responsivo desenvolvido com Handlebars e estilizado com Bootstrap. O BackEnd utiliza o Express, junto ao Sequelize (MySQL) como banco de dados para uma eficiente manipulação de dados. A segurança é assegurada com a utilização do bcrypt para autenticação de usuários, garantindo o armazenamento seguro e a proteção das credenciais no sistema. A aplicação possui dois CRUD completos, um para as perguntas e outro para os usuários.
-
-No total, há 8 páginas, cada uma com as suas próprias funcionalidades, sendo elas: Home, Signin, Signup, Read Question, Create Question, Edit Question, User Informations e User Question.
 
 
 <h2 id="#getting-started">🚀 Getting started (Uso local)</h2>
@@ -49,8 +51,8 @@ No mesmo terminal, execute o seguinte comando:
 ```bash
 npm start
 ```
-
-4 - Após a sguir todos esses passos, abra o seguinte link no navegador de preferência: 
+<h4>4 - Acessando o site</h4>
+Após a sguir todos esses passos, abra o seguinte link no navegador de preferência: 
 
 http://localhost:3000/
 
