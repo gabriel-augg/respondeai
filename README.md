@@ -16,10 +16,10 @@ No total, há 8 páginas, cada uma com as suas próprias funcionalidades, sendo 
 
 - JavaScript
 - Express
+- MVC
 - Handlebars
 - Bootstrap
-- Sequelize
-- MySQL
+- Sequelize com MySQL
 - Bcrypt (Auth)
 
 
