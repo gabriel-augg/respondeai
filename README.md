@@ -1,5 +1,5 @@
 # RespondeAi
-O RespondeAi foi concebido como uma plataforma inclusiva e interativa, destinada a criar uma comunidade onde a troca de perguntas e respostas se torna uma experiência enriquecedora. O cerne da ideia é proporcionar um ambiente acolhedor e aberto, onde qualquer pessoa se sinta encorajada a compartilhar suas dúvidas, curiosidades e questões, independentemente de sua natureza ou complexidade. A sua abordagem é semelhante ao antigo Yahoo Respostas, onde qualquer pessoa pode fazer uma pergunta e outras pessoas de qualquer lugar do mundo pode responder.
+O RespondeAi foi desenvolvido como uma plataforma inclusiva e interativa, destinada a criar uma comunidade onde a troca de perguntas e respostas se torna uma experiência enriquecedora. A ideia principal é proporcionar um ambiente acolhedor e aberto, onde qualquer pessoa se sinta encorajada a compartilhar suas dúvidas, curiosidades e questões, independentemente de sua natureza ou complexidade. A sua abordagem é semelhante ao antigo Yahoo Respostas, onde qualquer pessoa pode fazer uma pergunta e outras pessoas de qualquer lugar do mundo podem responder.
 
 Para executar o projeto, vá para o último tópico: <a href="##getting-started">🚀 Getting started</a>.
 
@@ -16,13 +16,11 @@ No total, há 8 páginas, cada uma com as suas próprias funcionalidades, sendo 
 
 - JavaScript
 - Express
+- MVC
 - Handlebars
 - Bootstrap
-- Sequelize
-- MySQL
+- Sequelize com MySQL
 - Bcrypt (Auth)
-
-
 
 
 <h2 id="#getting-started">🚀 Getting started (Uso local)</h2>
