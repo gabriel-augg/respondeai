@@ -39,7 +39,7 @@ export default class AnswerController{
 
             await Answer.update(answer, {where: {id:id}})
 
-            res.redirect(`/pergunta/${answer.QuestionId}`)
+            res.redirect(`/perguntas/${answer.QuestionId}`)
 
         } catch (error) {
             console.log(error)
